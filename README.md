@@ -1,3 +1,46 @@
+## proyect rick-and-morty
+
+personajes de rick-and-morty
+
+## Instalación
+
++ Después de descargar el proyecto entramos a este.
+
+        $ cd rick-and-morty
+
++ Ejecutamos el siguiente comando.
+
+        $ composer install
+    
++ Modificamos el nombre del archivo __.env.example.__ por __.env__ y agregamos nuestras credenciales.
+
++ Ejecutamos las migraciones.
+
+        $ php artisan migrate
+
++ Ejecutamos las seeds.
+
+        $ php artisan db:seed --class=DatabaseSeeder
+
++ Por ultimo solo debemos generar una key para nuestra app.
+
+         $ php artisan key:generate
+
++ Listo ya podemos ejecutar el proyecto incentive.
+
+        $ php artisan serve
+
++ Key app 
+
+        $ php artisan passport:keys
+
++ Listo ya podemos ejecutar el proyecto incentive.
+
+        $ php artisan passport:install
+
+Version 1.0
+
+
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
 <p align="center">
