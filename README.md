@@ -20,13 +20,13 @@ personajes de rick-and-morty
 
 + Ejecutamos las seeds.
 
-        $ php artisan db:seed --class=DatabaseSeeder
+        $ php artisan db:seed
 
 + Por ultimo solo debemos generar una key para nuestra app.
 
          $ php artisan key:generate
 
-+ Listo ya podemos ejecutar el proyecto incentive.
++ Listo ya podemos ejecutar el proyecto .
 
         $ php artisan serve
 
@@ -34,7 +34,7 @@ personajes de rick-and-morty
 
         $ php artisan passport:keys
 
-+ Listo ya podemos ejecutar el proyecto incentive.
++ Listo ya podemos ejecutar el proyecto .
 
         $ php artisan passport:install
 
