@@ -15,6 +15,7 @@ use App\Http\Controllers\PersonController;
 |
 */
 Route::get('/person', [PersonController::class, 'index']);
+Route::post('/person', [PersonController::class, 'store']);
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();

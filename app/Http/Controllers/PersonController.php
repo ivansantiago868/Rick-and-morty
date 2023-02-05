@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Person;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 /**
 * @OA\Info(title="API personas", version="1.0")
 *
@@ -27,7 +28,12 @@ class PersonController extends Controller
     */
     public function index()
     {
-        return Person::all();
+        $person = Person::all();
+        return response()->json([
+                "success" => true,
+                "message" => "Listado de personas",
+                "data" => $person
+            ]);
     }
 
     /**
@@ -37,7 +43,7 @@ class PersonController extends Controller
      */
     public function create()
     {
-        //
+
     }
 
     /**
@@ -48,7 +54,33 @@ class PersonController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $input = $request->all();
+        $messages = [
+            'name.required' => 'Debe ingresar un nombre',
+            'detail.required' => 'Debe ingresar un nombre',
+        ];
+        $input = [
+            'name' => 'required',
+            'detail' => 'required',
+        ];
+        $response = array('data' => '', 'success'=>false,'message'=>'');
+        $validator = Validator::make($request->all(), $input,$messages);
+
+        if ($validator->fails()) {
+            $response['message'] = $validator->messages();
+
+        } else {
+            $person = new Person;
+            $person->name = $request->name;
+            $person->detail = $request->detail;
+            $person->save();
+
+            $response['success'] = true;
+            $response['message'] = "Product created successfully.";
+            $response['data'] = $person;
+        }
+
+        return $response;
     }
 
     /**
@@ -57,9 +89,17 @@ class PersonController extends Controller
      * @param  \App\Models\Person  $person
      * @return \Illuminate\Http\Response
      */
-    public function show(Person $person)
+    public function show(Person $id)
     {
-        //
+        $person = person::find($id);
+        if (is_null($person)) {
+            return $this->sendError('person not found.');
+        }
+        return response()->json([
+            "success" => true,
+            "message" => "Product retrieved successfully.",
+            "data" => $person
+        ]);
     }
 
     /**
