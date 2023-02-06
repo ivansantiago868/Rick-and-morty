@@ -18,7 +18,12 @@ use App\Http\Controllers\GenderController;
 Route::get('/persons', [PersonController::class, 'index']);
 Route::post('/person', [PersonController::class, 'store']);
 Route::get('/person', [PersonController::class, 'show']);
+Route::get('/person/{person}/edit', [PersonController::class, 'edit']);
+Route::put('/person/{person}', [PersonController::class, 'update']);
+Route::delete('/person/{person}', [PersonController::class, 'destroy']);
+
 Route::get('/genders', [GenderController::class, 'index']);
+
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
