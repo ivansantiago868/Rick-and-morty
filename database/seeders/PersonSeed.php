@@ -17,19 +17,23 @@ class PersonSeed extends Seeder
     {
         DB::table('people')->insert([
             'name' => 'Morty Smith',
-            'detail' => 'Niño '
+            'detail' => 'Niño ',
+            'gender_id' => 1
         ]);
         DB::table('people')->insert([
             'name' => 'Rick Sánchez',
-            'detail' => 'Cientifico'
+            'detail' => 'Cientifico',
+            'gender_id' => 1
         ]);
         DB::table('people')->insert([
             'name' => 'Arthricia',
-            'detail' => 'Niña'
+            'detail' => 'Niña',
+            'gender_id' => 2
         ]);
         DB::table('people')->insert([
             'name' => 'Beth Smith',
-            'detail' => 'Mama'
+            'detail' => 'Mama',
+            'gender_id' => 2
         ]);
         // Person::factory()->count(3)->create();
 

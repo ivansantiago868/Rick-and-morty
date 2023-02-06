@@ -14,12 +14,9 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('people', function (Blueprint $table) {
-            $table->id();
-            $table->string('name');
-            $table->text('detail');
-            $table->integer('gender_id')->unsigned();
-            $table->foreign('gender_id')->references('id')->on('genders');
+        Schema::create('genders', function (Blueprint $table) {
+            $table->increments('id');
+            $table->string('name')->unique();
             $table->timestamp('created_at')->default(DB::raw('CURRENT_TIMESTAMP'));
             $table->timestamp('updated_at')->default(DB::raw('CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP'));
         });
@@ -32,6 +29,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('people');
+        Schema::dropIfExists('genders');
     }
 };

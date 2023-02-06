@@ -4,24 +4,17 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use App\Models\Gender;
 
-class Person extends Model
+class Gender extends Model
 {
     use HasFactory;
-
-    protected $table 	= 'people';
+    protected $table 	= 'genders';
 
     protected $guarded  = ['id'];
 
     protected $fillable = [
-        'name', 'detail'
+        'name'
     ];
 
     protected $primaryKey = 'id';
-
-    public function Gender()
-	{
-		return $this->hasMany(Gender::class,'gender_id','id');
-	}
 }
